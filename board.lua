@@ -11,19 +11,20 @@ function Board.new()
 			local tile = {}
 			tile.color = ( (j+i) % 2 == 0) and "dark" or "light"
 			tile.highlighted = false
+			tile.occupant = false
 			self[i][j] = tile
 		end
 	end
 	
 	function self.fill()
-		self[2][2] = Pieces.Pawn.new()
+		self[2][2].occupant = Pieces.Pawn.new()
 	end
 
 	function self.identify_piece(pos)
 		x = pos.x
 		y = pos.y
 
-		self[x][y].identify()
+		self[x][y].occupant.identify()
 	end
 
 	function self.draw(start_x, start_y)
