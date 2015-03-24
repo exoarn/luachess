@@ -1,6 +1,7 @@
 Piece = {}
 function Piece.new()
 	local self = {}
+	self.nr_of_moves = 0
 	local nr_of_moves = 0
 	
 	function self.identify()
