@@ -12,7 +12,7 @@ function Board.new()
 		self[i] = {}
 		for j = 1, 8 do
 			local tile = {}
-			tile.color = ( (j+i) % 2 == 0) and "dark" or "light"
+			tile.color = ( (j+i) % 2 == 0) and "light" or "dark"
 			tile.highlighted = false
 			tile.occupant = false
 			self[i][j] = tile
@@ -46,7 +46,6 @@ function Board.new()
 					piece.identity, piece.color = 
 								self[i][j].occupant.identify()
 					piece.quad = ChessImg[piece.color][piece.identity] 
-					print(piece.identity, piece.color, piece.quad, i, j)
 					love.graphics.draw(ChessImg.img, piece.quad,
 									(i*square_size + x),
 									(j*square_size + y))
