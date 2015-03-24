@@ -1,10 +1,13 @@
 Pieces = require("pieces")
+ChessImg = require("chessimg")
 
 local Board = {}
 
 function Board.new()
 	local self = {}
-	
+
+	local square_size = 64 --px
+
 	for i = 1, 8 do
 		self[i] = {}
 		for j = 1, 8 do
@@ -28,14 +31,40 @@ function Board.new()
 	end
 
 	function self.draw(start_x, start_y)
+		self.draw_tiles(start_x, start_y)
+		self.draw_pieces(start_x, start_y)
+	end
+
+	function self.draw_pieces(start_x, start_y)
+		x = start_x or 0
+		y = start_y or 0
+
+		for i = 1, #self do
+			for j = 1, #self[i] do
+				if self[i][j].occupant then
+					local piece = {}
+					piece.identity, piece.color = 
+								self[i][j].occupant.identify()
+					piece.quad = ChessImg[piece.color][piece.identity] 
+					print(piece.identity, piece.color, piece.quad, i, j)
+					love.graphics.draw(ChessImg.img, piece.quad,
+									(i*square_size + x),
+									(j*square_size + y))
+				end
+
+			end
+		end
+	end
+
+
+	function self.draw_tiles(start_x, start_y)
 		local dark_rgb  = {0, 100, 100} --rgb value
 		local light_rgb = {0, 200, 200}
 		
 		local x = start_x or 0
 		local y = start_y or 0
 
-		local square_size = 64 --px
-	
+		
 		for i = 1, #self do
 			for j = 1, #self[i] do
 				
