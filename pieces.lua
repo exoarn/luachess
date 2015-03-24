@@ -2,10 +2,12 @@ Piece = {}
 function Piece.new()
 	local self = {}
 	self.nr_of_moves = 0
-	local nr_of_moves = 0
+
+	self.color = "black"
+	self.name = "Piece"
 	
 	function self.identify()
-		print("I'm am a general piece, or a Piece without Identify functionality!")
+		return self.name , self.color
 	end
 
 	return self
@@ -15,11 +17,7 @@ end
 Pawn = {}
 function Pawn.new()
 	local self = Piece.new()
-	
-
-	function self.identify()
-		print("I am a Pawn")
-	end
+	self.name = "Pawn"
 
 	return self
 end 
@@ -62,5 +60,4 @@ Pieces.Knight = Knight
 Pieces.Bishop = Bishop
 Pieces.King = King
 Pieces.Queen = Queen
-
 return Pieces 
