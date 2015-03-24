@@ -1,9 +1,9 @@
 Piece = {}
-function Piece.new()
+function Piece.new(color)
 	local self = {}
 	self.nr_of_moves = 0
 
-	self.color = "black"
+	self.color = color or "black"
 	self.name = "Piece"
 	
 	function self.identify()
@@ -15,41 +15,41 @@ end
 
 
 Pawn = {}
-function Pawn.new()
-	local self = Piece.new()
+function Pawn.new(color)
+	local self = Piece.new(color)
 	self.name = "Pawn"
 
 	return self
 end 
 
 Rook = {}
-function Rook.new()
-	local self = Piece.new()
+function Rook.new(color)
+	local self = Piece.new(color)
 	return self
 end 
 
 Knight = {}
-function Rook.new()
-	local self = Piece.new()
+function Rook.new(color)
+	local self = Piece.new(color)
 	return self
 end 
 
 Bishop = {}
-function Bishop.new()
-	local self = Piece.new()
+function Bishop.new(color)
+	local self = Piece.new(color)
 	return self
 end 
 
 King = {}
-function King.new()
-	local self = Piece.new()
+function King.new(color)
+	local self = Piece.new(color)
 	return self
 end 
 
 
 Queen = {}
-function Queen.new()
-	local self = Piece.new()
+function Queen.new(color)
+	local self = Piece.new(color)
 	return self
 end 
 

@@ -20,7 +20,7 @@ function Board.new()
 	end
 	
 	function self.fill()
-		self[2][2].occupant = Pieces.Pawn.new()
+		self[2][2].occupant = Pieces.Pawn.new("white")
 	end
 
 	function self.identify_piece(pos)
