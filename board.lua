@@ -20,7 +20,24 @@ function Board.new()
 	end
 	
 	function self.fill()
-		self[2][2].occupant = Pieces.Pawn.new("white")
+		order_of_pieces = { "Rook", "Knight", "Bishop", "Queen",
+							"King", "Bishop", "Knight", "Rook"}
+		-- Create white pieces
+		for i = 1, 8 do
+			-- First create the row of pawns
+			self[i][7].occupant = Pieces.Pawn.new("white")
+		end
+		-- On the next row all pieces in order of order_of_pieces
+		for i,piece in ipairs(order_of_pieces) do
+			self[i][8].occupant = Pieces[piece].new("white")
+		end
+		-- Same for black
+		for i = 1, 8 do
+			self[i][1].occupant = Pieces.Pawn.new("black")
+		end
+		for i,piece in ipairs(order_of_pieces) do
+			self[i][2].occupant = Pieces[piece].new("black")
+		end
 	end
 
 	function self.identify_piece(pos)
