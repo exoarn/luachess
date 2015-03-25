@@ -25,24 +25,32 @@ end
 Rook = {}
 function Rook.new(color)
 	local self = Piece.new(color)
+	self.name = "Rook"
+	
 	return self
 end 
 
 Knight = {}
 function Knight.new(color)
 	local self = Piece.new(color)
+	self.name = "Knight"
+	
 	return self
 end 
 
 Bishop = {}
 function Bishop.new(color)
 	local self = Piece.new(color)
+	self.name = "Bishop"
+	
 	return self
 end 
 
 King = {}
 function King.new(color)
 	local self = Piece.new(color)
+	self.name = "King"
+	
 	return self
 end 
 
@@ -50,6 +58,8 @@ end
 Queen = {}
 function Queen.new(color)
 	local self = Piece.new(color)
+	self.name = "Queen"
+	
 	return self
 end 
 
