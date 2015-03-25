@@ -26,8 +26,12 @@ function Board.new()
 	function self.identify_piece(pos)
 		x = pos.x
 		y = pos.y
+		if self[x][y].occupant then
+			return self[x][y].occupant.identify()
+		else
+			return false
+		end
 
-		self[x][y].occupant.identify()
 	end
 
 	function self.draw(start_x, start_y)
