@@ -68,8 +68,8 @@ function Board.new()
 								self[i][j].occupant.identify()
 					piece.quad = ChessImg[piece.color][piece.identity] 
 					love.graphics.draw(ChessImg.img, piece.quad,
-									(i*square_size + x),
-									(j*square_size + y))
+									((i-1)*square_size + x),
+									((j-1)*square_size + y))
 				end
 
 			end
