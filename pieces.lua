@@ -29,7 +29,7 @@ function Rook.new(color)
 end 
 
 Knight = {}
-function Rook.new(color)
+function Knight.new(color)
 	local self = Piece.new(color)
 	return self
 end 
