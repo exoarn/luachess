@@ -76,6 +76,23 @@ function Board.new()
 		end
 	end
 
+	function self.move_piece(pos1, pos2)
+		if not (pos1.x and pos1.y and pos2.x and pos2.y) then
+			error("Incorrect arguments, pos1 and pos2 must be tables with x and y values")
+		end
+
+		if self[pos2.x][pos2.y].occupant then
+			--A piece is captured
+			-- TODO
+			print("Capture!")
+		end
+
+		-- move piece to new position
+		self[pos2.x][pos2.y].occupant = self[pos1.x][pos1.y].occupant
+		-- clear old position
+		self[pos1.x][pos1.y].occupant = false
+	end
+
 
 	function self.draw_tiles(start_x, start_y)
 		local dark_rgb  = {0, 100, 100} --rgb value
