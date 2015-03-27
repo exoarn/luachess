@@ -7,6 +7,8 @@ function Board.new()
 	local self = {}
 
 	local square_size = 64 --px
+	local x_offset = 0
+	local y_offset = 0 
 
 	for i = 1, 8 do
 		self[i] = {}
@@ -51,14 +53,14 @@ function Board.new()
 
 	end
 
-	function self.draw(start_x, start_y)
-		self.draw_tiles(start_x, start_y)
-		self.draw_pieces(start_x, start_y)
+	function self.draw()
+		self.draw_tiles()
+		self.draw_pieces()
 	end
 
-	function self.draw_pieces(start_x, start_y)
-		x = start_x or 0
-		y = start_y or 0
+	function self.draw_pieces()
+		x = x_offset or 0
+		y = y_offset or 0
 
 		for i = 1, #self do
 			for j = 1, #self[i] do
@@ -77,12 +79,12 @@ function Board.new()
 	end
 
 
-	function self.draw_tiles(start_x, start_y)
+	function self.draw_tiles()
 		local dark_rgb  = {0, 100, 100} --rgb value
 		local light_rgb = {0, 200, 200}
 		
-		local x = start_x or 0
-		local y = start_y or 0
+		local x = x_offset or 0
+		local y = y_offset or 0
 
 		
 		for i = 1, #self do
@@ -100,13 +102,27 @@ function Board.new()
 			end
 
 			y = y + square_size
-			x = start_x or 0
+			x = x_offset or 0
 
 		end
 	end
 	
-	
-	
+	function self.move_piece(pos1, pos2)
+		if not (pos1.x and pos1.y and pos2.x and pos2.y) then
+			error("Incorrect arguments, pos1 and pos2 must be tables with x and y values")
+		end
+
+		if self[pos2.x][pos2.y].occupant then
+			--A piece is captured
+			-- TODO
+			print("Capture!")
+		end
+
+		-- move piece to new position
+		self[pos2.x][pos2.y].occupant = self[pos1.x][pos1.y].occupant
+		-- clear old position
+		self[pos1.x][pos1.y].occupant = false
+	end	
 	
 	self.fill()
 
