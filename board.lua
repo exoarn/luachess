@@ -15,7 +15,7 @@ function Board.new()
 		for j = 1, 8 do
 			local tile = {}
 			tile.color = ( (j+i) % 2 == 0) and "light" or "dark"
-			tile.highlighted = false
+			tile.highlight = false
 			tile.occupant = false
 			self[i][j] = tile
 		end
