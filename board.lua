@@ -83,6 +83,8 @@ function Board.new()
 		local dark_rgb  = {0, 100, 100} --rgb value
 		local light_rgb = {0, 200, 200}
 		
+		local highlight_rgb  = {255, 50, 50}
+
 		local x = x_offset or 0
 		local y = y_offset or 0
 
@@ -94,6 +96,10 @@ function Board.new()
 					love.graphics.setColor(unpack(dark_rgb))
 				else
 					love.graphics.setColor(unpack(light_rgb))
+				end
+
+				if self[i][j].highlight then
+					love.graphics.setColor(unpack(highlight_rgb))
 				end
 
 				love.graphics.rectangle('fill', x, y, 
