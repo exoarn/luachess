@@ -59,9 +59,6 @@ function Board.new()
 	end
 
 	function self.draw_pieces()
-		x = x_offset or 0
-		y = y_offset or 0
-
 		for i = 1, #self do
 			for j = 1, #self[i] do
 				if self[i][j].occupant then
@@ -70,8 +67,8 @@ function Board.new()
 								self[i][j].occupant.identify()
 					piece.quad = ChessImg[piece.color][piece.identity] 
 					love.graphics.draw(ChessImg.img, piece.quad,
-									((i-1)*square_size + x),
-									((j-1)*square_size + y))
+									((i-1)*square_size + x_offset),
+									((j-1)*square_size + y_offset))
 				end
 
 			end
