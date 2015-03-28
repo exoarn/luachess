@@ -130,6 +130,13 @@ function Board.new()
 		self[pos1.x][pos1.y].occupant = false
 	end	
 	
+	function self.get_board_offset()
+		return x_offset, y_offset
+	end
+
+	function self.get_tilesize()
+		return square_size
+	end
 	self.fill()
 
 	return self
