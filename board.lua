@@ -71,7 +71,6 @@ function Board.new()
 									((i-1)*square_size + x_offset),
 									((j-1)*square_size + y_offset))
 				end
-
 			end
 		end
 	end
@@ -135,6 +134,7 @@ function Board.new()
 	function self.get_tilesize()
 		return square_size
 	end
+
 	self.fill()
 
 	return self
