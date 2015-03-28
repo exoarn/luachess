@@ -102,11 +102,11 @@ function Board.new()
 
 				love.graphics.rectangle('fill', x, y, 
 								square_size, square_size);
-				x = x + square_size
+				y = y + square_size
 			end
 
-			y = y + square_size
-			x = x_offset or 0
+			x = x + square_size
+			y = y_offset or 0
 
 		end
 	end
