@@ -59,6 +59,7 @@ function Board.new()
 	end
 
 	function self.draw_pieces()
+		love.graphics.setColor(200, 200, 200)
 		for i = 1, #self do
 			for j = 1, #self[i] do
 				if self[i][j].occupant then
