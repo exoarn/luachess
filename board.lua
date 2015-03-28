@@ -20,7 +20,7 @@ function Board.new()
 			self[i][j] = tile
 		end
 	end
-	
+
 	function self.fill()
 		order_of_pieces = { "Rook", "Knight", "Bishop", "Queen",
 							"King", "Bishop", "Knight", "Rook"}
@@ -71,6 +71,7 @@ function Board.new()
 									((i-1)*square_size + x_offset),
 									((j-1)*square_size + y_offset))
 				end
+
 			end
 		end
 	end
