@@ -35,10 +35,10 @@ function Board.new()
 		end
 		-- Same for black
 		for i = 1, 8 do
-			self[i][1].occupant = Pieces.Pawn.new("black")
+			self[i][2].occupant = Pieces.Pawn.new("black")
 		end
 		for i,piece in ipairs(order_of_pieces) do
-			self[i][2].occupant = Pieces[piece].new("black")
+			self[i][1].occupant = Pieces[piece].new("black")
 		end
 	end
 
