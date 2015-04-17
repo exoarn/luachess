@@ -22,9 +22,16 @@ function love.mousepressed(x, y, button)
 		
 		print("occupant: ",Board[i][j].occupant) 
 		
-		if (i <= 8 and j <= 8) and Board[i][j].occupant then
-			print("Highlight: ", Board[i][j].highlight )
-			Board[i][j].highlight = not Board[i][j].highlight  
+		if  (i <= 8 and j <= 8) then
+			if selected_piece then
+				Board.move_piece(selected_piece.origin, {x=i, y=j})
+				selected_piece = false
+			elseif Board[i][j].occupant then
+				--print("Highlight: ", Board[i][j].highlight )
+				--Board[i][j].highlight = not Board[i][j].highlight
+				selected_piece = Board[i][j].occupant
+				selected_piece.origin = {x=i, y=j}
+			end
 		end
 
 	end

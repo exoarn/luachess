@@ -121,11 +121,14 @@ function Board.new()
 			-- TODO
 			print("Capture!")
 		end
-
-		-- move piece to new position
-		self[pos2.x][pos2.y].occupant = self[pos1.x][pos1.y].occupant
+		
+		-- place piece in temporairy variable to avoid deleting
+		-- it when placing it on its own position
+		local temp_piece = self[pos1.x][pos1.y].occupant
 		-- clear old position
 		self[pos1.x][pos1.y].occupant = false
+		-- move piece to new position
+		self[pos2.x][pos2.y].occupant = temp_piece
 	end	
 	
 	function self.get_board_offset()
